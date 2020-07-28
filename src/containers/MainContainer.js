@@ -1,7 +1,8 @@
 import React from 'react'
-import Wardrobe from './components/Wardrobe'
-import Mannequin from './components/Mannequin'
-import ClothingForm from './components/ClothingForm'
+import Wardrobe from '../components/Wardrobe'
+import Mannequin from '../components/Mannequin'
+import ClothingForm from '../components/ClothingForm'
+import SearchBar from '../components/SearchBar'
 
 export default class MainContainer extends React.Component {
     state = {
@@ -11,10 +12,11 @@ export default class MainContainer extends React.Component {
     render() {
 
         return (
-            <div> 
+            <div>
+                <SearchBar />
+                <Mannequin /> 
                 <Wardrobe />
-                <Mannequin />
-                <ClothingForm />
+                <ClothingForm />        
             </div>
         )
     }
