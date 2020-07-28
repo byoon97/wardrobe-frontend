@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ClothingContainer from './components/ClothingContainer'
+import MainContainer from './containers/MainContainer';
+import SearchBar from './containers/SearchBar'
 
 function App() {
   return (
-        <div>
-          <ClothingContainer />
-        </div>
+    <div className="App">
+      <SearchBar />
+      <MainContainer />
+    </div>
   );
 }
 
