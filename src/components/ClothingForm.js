@@ -1,6 +1,8 @@
 import React from 'react'
+
 export default class ClothingForm extends React.Component {
     render () {
+    
         return (
             <div class="py-12 px-4">
         <h2 class="text-3xl mb-8 text-center font-heading">Submit new Clothing</h2>
