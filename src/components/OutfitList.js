@@ -1,4 +1,5 @@
 import React from 'react'
+import OutfitCard from '../components/OutfitCard'
 
 export default class OutfitList extends React.Component {
 
@@ -15,13 +16,11 @@ export default class OutfitList extends React.Component {
             <tr><th className="border-t px-2 py-2" scope="col">Day</th><th className="border-t px-2 py-2" scope="col">Category</th><th className="border-t px-2 py-2" scope="col">Description</th>
             </tr></thead>
           <tbody>
-            <tr>
-              <td className="border-t px-2 py-2">S</td>
-              <td className="border-t px-2 py-2"><a href="#"><img className="inline-block mr-2 rounded-full" src="placeholders/pictures/male_avatar.svg" alt="" height="40" width="40"/> Nike Off White Sports Bra</a></td>
-              <td className="border-t px-2 py-2">Light blue sports bra</td>
-              <td className="border-t px-2 py-2">Sports</td>
-              <td className="text-center border-t px-2 py-2"><a className="text-blue-700 hover:underline" href="#">edit</a></td>
-            </tr>
+          {this.props.outfits.map(outfit => <OutfitCard
+            key={outfit.id}
+            {...outfit}
+            handleSelectedOutfit={this.props.handleSelectedOutfit}
+             />)}
           </tbody>
         </table>
       </section>

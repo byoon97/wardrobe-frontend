@@ -1,23 +1,25 @@
 import React from "react";
 
-export default () => {
+export default (props) => {
+  const { name, id, image, size, category } = props
+  console.log(props)
   return (
     <section className="py-12 px-4">
       <div className="flex flex-wrap -mx-4">
         <div className="lg:w-1/2 px-4 mb-4 lg:mb-0">
           <img
             className="rounded shadow-md"
-            src="placeholders/pictures/paper.jpg"
+            src={image}
             alt=""
           />
         </div>
         <div className="lg:w-1/2 px-4">
-          <h2 className="text-4xl mb-4 font-heading">&lt;clothing name&gt;</h2>
+          <h2 className="text-4xl mb-4 font-heading">{name}</h2>
           <p className="mb-6 text-gray-500 leading-relaxed">
-            &lt;clothing description&gt;
+            Category: {category}
           </p>
           <p className="mb-6 text-gray-500 leading-relaxed">
-            &lt;clothing size&gt;
+            Size: {size}
           </p>
           <div className="mb-6">
             <button className="inline-flex items-center justify-center h-8 w-8 mr-2 bg-gray-400 rounded-full"></button>
