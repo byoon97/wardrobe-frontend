@@ -20,6 +20,7 @@ export default class OutfitList extends React.Component {
             key={outfit.id}
             {...outfit}
             handleSelectedOutfit={this.props.handleSelectedOutfit}
+            deleteOutfit={this.props.deleteOutfit}
              />)}
           </tbody>
         </table>

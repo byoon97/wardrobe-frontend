@@ -1,6 +1,23 @@
 import React from "react";
 
 export default class FilterBar extends React.Component {
+  state = {
+    size: ''
+  }
+
+  handleChange = e => {
+    if (e.target.value === "Please select a Size") {
+      this.setState( {size: ''}, () => {
+        this.props.handleFilter(this.state.size)
+      } )
+      
+    } else if (e.target.value !== "Please select a Size") {
+      this.setState({ [e.target.name]: e.target.value}, () => {
+        this.props.handleFilter(this.state.size)
+      })
+    }
+  }
+
   render() {
     return (
       <form>
@@ -11,12 +28,15 @@ export default class FilterBar extends React.Component {
           <div className="relative">
             <select
               className="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none"
-              name="field-name"
+              name="size"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.size}
             >
-              <option>Sports</option>
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Sneakers</option>
+              <option>Please select a Size</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg

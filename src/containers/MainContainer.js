@@ -12,7 +12,8 @@ export default class MainContainer extends React.Component {
         clothes: [],
         outfits: [],
         selectedItem: null,
-        selectedOutfit: null
+        selectedOutfit: null,
+        filteredClothes: null
     }
 
     componentDidMount() {
@@ -54,6 +55,61 @@ export default class MainContainer extends React.Component {
         this.setState ( { clothes: [...this.state.clothes, newItem] } )
     }
 
+    deleteOutfit = (outfitId) => {
+        let selectedOutfit = this.state.outfits.find(outfit => outfit.id === outfitId)
+        fetch('http://localhost:3000/outfits', {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application.json"
+            }
+        })
+        .then(res => res.json())
+        .then(() => {
+            let newOutfitsArr = this.state.outfits.filter(outfit => outfit !== selectedOutfit)
+            this.setState({outfits: newOutfitsArr})
+        })
+    }
+
+    deleteClothe = (clotheId) => {
+        let selectedItem = this.state.clothes.find(clothe => clothe.id === clotheId)
+        fetch(`http://localhost:3000/clothes/${clotheId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application.json"
+            }
+        })
+        .then(res => res.json())
+        .then(() => {
+            let newClothesArr = this.state.clothes.filter(clothe => clothe !== selectedItem)
+            this.setState({clothes: newClothesArr})
+        })
+    }
+
+    handleFilter = (size) => {
+        if (size === '') {
+            this.setState({filteredClothes: null})
+        } else if (size !== '') {
+            let filteredClothes = this.state.clothes.filter(clothe => clothe.size === size)
+            this.setState({filteredClothes: filteredClothes})
+        }
+    }
+
+    renderClothes = () => {
+        if (this.state.filteredClothes === null) {
+            return <Wardrobe
+            clothes={this.state.clothes}
+             handleSelectedItem={this.handleSelectedItem}
+             deleteClothe={this.deleteClothe}
+             />
+        } else if (this.state.filteredClothes !== []) {
+            return <Wardrobe
+            clothes={this.state.filteredClothes}
+             handleSelectedItem={this.handleSelectedItem}
+             deleteClothe={this.deleteClothe}
+             />
+        }
+    }
+
   render() {
       console.log(this.state)
     return (
@@ -66,9 +122,13 @@ export default class MainContainer extends React.Component {
           </div>
           <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
             {this.renderClothingCard()}
-            <FilterBar />
-            <Wardrobe clothes={this.state.clothes} handleSelectedItem={this.handleSelectedItem}/>
-            <OutfitList outfits={this.state.outfits} handleSelectedOutfit={this.handleSelectedOutfit}/>
+            <FilterBar handleFilter={this.handleFilter}/>
+            {this.renderClothes()}
+            <OutfitList
+            outfits={this.state.outfits}
+            handleSelectedOutfit={this.handleSelectedOutfit}
+            deleteOutfit={this.deleteOutfit}
+            />
           </div>
         </div>
       </div>

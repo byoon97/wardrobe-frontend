@@ -10,8 +10,6 @@ export default class ClothingForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        
-        let proxyUrl= "https://cors-anywhere.herokuapp.com/"
         fetch('http://localhost:3000/clothes', {
             method: 'POST',
             headers: {
@@ -36,7 +34,6 @@ export default class ClothingForm extends React.Component {
     }
 
   render() {
-      console.log(this.state)
     return (
       <section className="py-12 px-4">
         <h2 className="text-3xl mb-8 text-center font-heading">

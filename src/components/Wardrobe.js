@@ -22,6 +22,7 @@ export default class Wardrobe extends React.Component {
             key={item.id}
             {...item}
             handleSelectedItem={this.props.handleSelectedItem}
+            deleteClothe={this.props.deleteClothe}
              />)}
             
           </tbody>
