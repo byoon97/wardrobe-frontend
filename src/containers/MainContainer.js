@@ -50,6 +50,10 @@ export default class MainContainer extends React.Component {
         }
     }
 
+    handleNewClothes = (newItem) => {
+        this.setState ( { clothes: [...this.state.clothes, newItem] } )
+    }
+
   render() {
       console.log(this.state)
     return (
@@ -58,7 +62,7 @@ export default class MainContainer extends React.Component {
         <div className="flex flex-wrap -mx-4 -mb-4 md:mb-0">
           <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
             {this.renderMannequin()}
-            <ClothingForm />
+            <ClothingForm handleNewClothes={this.handleNewClothes}/>
           </div>
           <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
             {this.renderClothingCard()}
