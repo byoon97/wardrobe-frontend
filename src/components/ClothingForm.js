@@ -89,32 +89,6 @@ export default class ClothingForm extends React.Component {
             </div>
           </form>
         </div>
-        <div className="flex flex-col lg:flex-row lg:justify-center -mx-4">
-          <div className="px-4">
-            <img
-              className="inline-block w-8 h-8 pr-2"
-              src="placeholders/icons/home.svg"
-              alt=""
-            />
-            <span>Flatiron School of Software Engineering</span>
-          </div>
-          <div className="px-4">
-            <img
-              className="inline-block w-8 h-8 pr-2"
-              src="placeholders/icons/mobile.svg"
-              alt=""
-            />
-            <span></span>
-          </div>
-          <div className="px-4">
-            <img
-              className="inline-block w-8 h-8 pr-2"
-              src="placeholders/icons/message.svg"
-              alt=""
-            />
-            <span>By Christa and Brandon</span>
-          </div>
-        </div>
       </section>
     );
   }

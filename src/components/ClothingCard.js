@@ -1,7 +1,7 @@
 import React from "react";
 
 export default (props) => {
-  const { name, id, image, size, category } = props
+  const { name, image, size, category } = props
   console.log(props)
   return (
     <section className="py-12 px-4">
