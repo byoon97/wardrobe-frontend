@@ -20,7 +20,6 @@ export default class MainContainer extends React.Component {
         fetch('http://localhost:3000/outfits')
         .then(res => res.json())
         .then(data => {
-            console.log("success", data)
             this.setState({outfits: data})
         })
         fetch('http://localhost:3000/clothes')
@@ -72,8 +71,8 @@ export default class MainContainer extends React.Component {
         })
     }
 
-    deleteClothe = (clotheId) => {
-        let selectedItem = this.state.clothes.find(clothe => clothe.id === clotheId)
+    deleteClothe = (event, clotheId) => {
+        event.preventDefault()
         fetch(`http://localhost:3000/clothes/${clotheId}`, {
             method: "DELETE",
             headers: {
@@ -83,10 +82,10 @@ export default class MainContainer extends React.Component {
         })
         .then(res => res.json())
         .then(() => {
-            let newClothesArr = this.state.clothes.filter(clothe => clothe !== selectedItem)
-            this.setState({clothes: newClothesArr})
+            let newClothes = this.state.clothes.filter(clothe => clothe.id !== clotheId)
+            this.setState({clothes: newClothes})
         }).catch(error => {
-            console.log(error)
+            console.log(error.message)
         })
     }
 
