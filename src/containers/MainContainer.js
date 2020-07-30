@@ -20,6 +20,7 @@ export default class MainContainer extends React.Component {
         fetch('http://localhost:3000/outfits')
         .then(res => res.json())
         .then(data => {
+            console.log("success", data)
             this.setState({outfits: data})
         })
         fetch('http://localhost:3000/clothes')
@@ -57,10 +58,11 @@ export default class MainContainer extends React.Component {
 
     deleteOutfit = (outfitId) => {
         let selectedOutfit = this.state.outfits.find(outfit => outfit.id === outfitId)
-        fetch('http://localhost:3000/outfits', {
+        fetch(`http://localhost:3000/outfits/${outfitId}`, {
             method: "DELETE",
             headers: {
-                "Content-Type": "application.json"
+                "Content-Type": "application/json",
+                "Accept":"application/json"
             }
         })
         .then(res => res.json())
@@ -75,13 +77,16 @@ export default class MainContainer extends React.Component {
         fetch(`http://localhost:3000/clothes/${clotheId}`, {
             method: "DELETE",
             headers: {
-                "Content-Type": "application.json"
+                "Content-Type": "application/json",
+                "Accept":"application/json"
             }
         })
         .then(res => res.json())
         .then(() => {
             let newClothesArr = this.state.clothes.filter(clothe => clothe !== selectedItem)
             this.setState({clothes: newClothesArr})
+        }).catch(error => {
+            console.log(error)
         })
     }
 
@@ -111,7 +116,6 @@ export default class MainContainer extends React.Component {
     }
 
   render() {
-      console.log(this.state)
     return (
       <div>
         <SearchBar />
