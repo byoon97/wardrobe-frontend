@@ -10,7 +10,7 @@ export default class OutfitForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/clothes", {
+    fetch("http://localhost:3000/outfit_clothes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
