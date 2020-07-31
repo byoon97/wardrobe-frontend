@@ -52,7 +52,7 @@ export default class MainContainer extends React.Component {
   renderMannequin = () => {
     if (this.state.selectedOutfit !== null) {
       let outfit = this.state.outfits.find(
-        (outfit) => outfit.id === this.state.selectedOutfit
+        outfit => outfit.id === this.state.selectedOutfit
       );
       return <Mannequin key={outfit.id} {...outfit} {...outfit.clothes} />;
     }

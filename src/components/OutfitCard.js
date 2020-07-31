@@ -11,7 +11,7 @@ const OutfitCard = (props) => {
   } = props;
   
   return (
-    <tr onClick={() => handleSelectedOutfit(id)}>
+    <tr>
       <td className="border-t px-2 py-2">
         <a href="#">
           <img
@@ -25,12 +25,13 @@ const OutfitCard = (props) => {
         </a>
       </td>
       <td className="border-t px-2 py-2">{category}</td>
-      <td className="border-t px-2 py-2">{name}</td>
+      <td onClick={() => handleSelectedOutfit(id)} className="border-t px-2 py-2">{name}</td>
       <td
-        onClick={() => deleteOutfit(id)}
         className="text-center border-t px-2 py-2"
       >
-        <a className="text-blue-700 hover:underline" href="#">
+        <a 
+        onClick={() => deleteOutfit(id)}
+        className="text-blue-700 hover:underline" href="#">
           delete
         </a>
       </td>
