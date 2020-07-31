@@ -83,7 +83,7 @@ export default class ClothingForm extends React.Component {
               ></input>
             </div>
             <div>
-              <button className="inline-block w-full py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow">
+              <button className="flex justify-center w-full px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                 Submit
               </button>
             </div>
