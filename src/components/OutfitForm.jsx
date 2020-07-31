@@ -3,14 +3,15 @@ import OutfitFormCard from "./OutfitFormCard";
 
 export default class OutfitForm extends React.Component {
   state = {
-    day: "",
-    category: "",
-    description: "",
+    name: '',
+    category: '',
+    user: '',
+    weekday: ''
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/outfit_clothes", {
+    fetch("http://localhost:3000/outfit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,9 +23,9 @@ export default class OutfitForm extends React.Component {
       .then((data) => {
         this.props.handleNewOutfit(data);
         this.setState({
-          day: "",
-          category: "",
-          description: "",
+            name: '',
+            category: '',
+            weekday: ''
         });
       });
   };
@@ -64,7 +65,7 @@ export default class OutfitForm extends React.Component {
                 type="text"
                 placeholder="Outfit Day"
                 name="day"
-                value={this.state.day}
+                value={this.state.weekday}
                 onChange={(event) => this.handleChange(event)}
               />
             </div>
@@ -84,7 +85,7 @@ export default class OutfitForm extends React.Component {
                 type="text"
                 placeholder="Outfit Description"
                 name="description"
-                value={this.state.description}
+                value={this.state.name}
                 onChange={(event) => this.handleChange(event)}
               />
             </div>
