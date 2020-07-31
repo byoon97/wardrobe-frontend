@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const OutfitCard = (props) => {
   const {
@@ -6,11 +6,10 @@ const OutfitCard = (props) => {
     id,
     category,
     weekday,
-    user_id,
     handleSelectedOutfit,
     deleteOutfit,
-    clothes,
   } = props;
+  
   return (
     <tr onClick={() => handleSelectedOutfit(id)}>
       <td className="border-t px-2 py-2">
