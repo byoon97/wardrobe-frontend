@@ -22,7 +22,7 @@ export default class FilterBar extends React.Component {
     return (
       <form>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Please Select a Size
           </label>
           <div className="relative">

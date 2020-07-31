@@ -25,6 +25,12 @@ export default class Wardrobe extends React.Component {
               <th className="border-t px-2 py-2" scope="col">
                 Type
               </th>
+              <th className="border-t px-2 py-2" scope="col">
+                Add to Outfit
+              </th>
+              <th className="border-t px-2 py-2" scope="col">
+                Delete
+              </th>
             </tr>
           </thead>
           <tbody>

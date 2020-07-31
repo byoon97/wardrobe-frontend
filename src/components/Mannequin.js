@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 
 export default class Mannequin extends React.Component {
   render() {
@@ -20,7 +19,6 @@ export default class Mannequin extends React.Component {
             <div className="flex flex-wrap -mx-4 -mb-8">
               {this.props.clothes.map((item) => (
                 <div className="md:w-1/3 px-4 mb-8">
-                  Item: {item.name} Size: {item.size}
                   <img className="rounded shadow-md" src={item.image} alt="" />
                 </div>
               ))}

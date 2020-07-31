@@ -66,6 +66,12 @@ export default class MainContainer extends React.Component {
       this.setState({ outfits : [...this.state.outfits, newOutfit ]})
   }
 
+  // handleRemoveFromOutfitForm = (id) => {
+  //   const newOutfit = this.state.newOutfit;
+  //   delete newOutfit[id];
+  //   this.setState({ ...newOutfit });
+  // };
+
   deleteOutfit = (outfitId) => {
     let selectedOutfit = this.state.outfits.find(
       (outfit) => outfit.id === outfitId
@@ -159,6 +165,7 @@ export default class MainContainer extends React.Component {
               clothes={this.state.clothes}
               newOutfit={this.state.newOutfit}
               handleNewOutfit={this.handleNewOutfit}
+              removeFromOutfitForm={this.handleRemoveFromOutfitForm}
             />
           </div>
           <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
