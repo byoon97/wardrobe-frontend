@@ -5,12 +5,13 @@ export default class OutfitForm extends React.Component {
   state = {
     name: "",
     category: "",
-    user: "",
+    user_id: 1,
     weekday: "",
     clothes: [],
   };
 
   handleSubmit = (e) => {
+    console.log(this.state, this.props.newOutfit)
     e.preventDefault();
     fetch("http://localhost:3000/outfits", {
       method: "POST",
@@ -30,6 +31,7 @@ export default class OutfitForm extends React.Component {
           name: "",
           category: "",
           weekday: "",
+          user_id: 1,
           clothes: [],
         });
       });
@@ -37,7 +39,6 @@ export default class OutfitForm extends React.Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    console.log({ name, value });
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -66,7 +67,7 @@ export default class OutfitForm extends React.Component {
               ))}
             </tbody>
           </table>
-          <div className="w-full max-w-2xl py-4 mx-auto mb-12">
+          <div className="w-full max-w-2xl py-2 mx-auto mb-12">
             <div className="mb-4">
               <input
                 className="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none"

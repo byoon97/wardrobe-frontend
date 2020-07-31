@@ -2,7 +2,7 @@ import React from "react";
 
 export default (props) => {
   const { name, image, size, category } = props
-  console.log(props)
+  
   return (
     <section className="py-12 px-4">
       <div className="flex flex-wrap -mx-4">

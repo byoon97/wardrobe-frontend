@@ -22,7 +22,7 @@ export default class MainContainer extends React.Component {
     fetch("http://localhost:3000/outfits")
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
+        // console.log("success", data);
         this.setState({ outfits: data });
       });
     fetch("http://localhost:3000/clothes")
@@ -72,7 +72,8 @@ export default class MainContainer extends React.Component {
   //   this.setState({ ...newOutfit });
   // };
 
-  deleteOutfit = (outfitId) => {
+  deleteOutfit = (event, outfitId) => {
+    event.preventDefault()
     let selectedOutfit = this.state.outfits.find(
       (outfit) => outfit.id === outfitId
     );
@@ -154,7 +155,9 @@ export default class MainContainer extends React.Component {
   };
 
   render() {
+    console.log(this.state.newOutfit, "main container")
     return (
+      
       <div>
         <SearchBar />
         <div className="flex flex-wrap -mx-4 -mb-4 md:mb-0">

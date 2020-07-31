@@ -30,7 +30,7 @@ const OutfitCard = (props) => {
         className="text-center border-t px-2 py-2"
       >
         <a 
-        onClick={() => deleteOutfit(id)}
+        onClick={(event) => deleteOutfit(event, id)}
         className="text-blue-700 hover:underline" href="#">
           delete
         </a>
